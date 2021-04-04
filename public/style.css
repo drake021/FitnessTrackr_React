@@ -1,0 +1,33 @@
+#app {
+    background-color: #e1f1f0;
+    display: grid;
+    grid-template: 100px 1fr / 1fr;
+    width: 100%;
+    height: 50pc;
+    padding: 10px;
+}
+#header {
+    grid-area: 1 / 1 / 2 / 2;
+    background-color: #7579e7;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+#header-home, #header-routines, #header-myroutines, #header-activities {
+    border: 1px solid black;
+    background-color: #a3d8f4;
+    font-size: 2rem;
+    margin: 3px;
+    padding: 1em;
+    border-radius: 12px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: unset;
+    align-self: stretch;
+    flex-basis: 100px;
+    color: #28527a;
+}
+
+#header-home:hover, #header-routines:hover, #header-myroutines:hover, #header-activities:hover {
+    background-color: white;
+}
