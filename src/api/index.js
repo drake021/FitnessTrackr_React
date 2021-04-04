@@ -10,8 +10,8 @@ async function fetchRegister(username, password) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-                username: username,
-                password: password
+            username: username,
+            password: password
         })
     })
         .then(response => response.json())
@@ -28,8 +28,8 @@ async function fetchLogin(username, password) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-                username: username,
-                password: password
+            username: username,
+            password: password
         })
     })
         .then(response => response.json())
@@ -75,9 +75,9 @@ const createNewRoutine = async (token, name, goal, isPublic) => {
                 "Authorization": "Bearer " + token
             },
             body: JSON.stringify({
-                    name,
-                    goal,
-                    isPublic
+                name,
+                goal,
+                isPublic
             })
         }
     );
@@ -86,55 +86,79 @@ const createNewRoutine = async (token, name, goal, isPublic) => {
 
 //My Routines
 
-            
-    const fetchMyRoutines = async (user) => {
-        const resp = await fetch(`${BASE_URL}/users/${user.username}/routines`,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + user.token
-                },
-            }
-        );
-        return await resp.json();
-    };  
+
+const fetchMyRoutines = async (user) => {
+    const resp = await fetch(`${BASE_URL}/users/${user.username}/routines`,
+        {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + user.token
+            },
+        }
+    );
+    return await resp.json();
+};
 
 
-    const deleteRoutine = async (id, user) => {
-    
-        await fetch(`${BASE_URL}/routines/${id}`,
+const deleteRoutine = async (id, user) => {
+
+    await fetch(`${BASE_URL}/routines/${id}`,
         {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + user.token
-    }
-        }).then(response => response.json())
-         .then(result => {
-             console.log(result);
-             alert('Routine Has Been Deleted');
-
-         })
-         .catch(console.error);
-        }
-
-        const deleteRoutineActivity = async (id, user) => {
-    
-            await fetch(`${BASE_URL}/routine_activities/${id}`,
-            {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + user.token
-        }
-            }).then(response => response.json())
-             .then(result => {
-                 console.log(result);
-                 alert('Routine Activity Has Been Deleted');
-    
-             })
-             .catch(console.error);
             }
+        }).then(response => response.json())
+        .then(result => {
+            console.log(result);
+            alert('Routine Has Been Deleted');
+
+        })
+        .catch(console.error);
+}
+
+const deleteRoutineActivity = async (id, user) => {
+
+    await fetch(`${BASE_URL}/routine_activities/${id}`,
+        {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + user.token
+            }
+        }).then(response => response.json())
+        .then(result => {
+            console.log(result);
+            alert('Routine Activity Has Been Deleted');
+
+        })
+        .catch(console.error);
+}
+
+const editRoutine = async (id, user, name, goal) => {
+    await fetch(`${BASE_URL}/routines/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + user.token
+        },
+        body: JSON.stringify({
+            name: name,
+            goal: goal
+        })
+    }).then(response => response.json())
+        .then(result => {
+            console.log(result);
+            alert('Routine has been edited');
+        })
+        .catch(console.error);
+}
+
+
+
+
+
 
 //Activities
 
@@ -157,8 +181,8 @@ const createNewActivity = async (token, name, description) => {
                 "Authorization": "Bearer " + token
             },
             body: JSON.stringify({
-                    name,
-                    description
+                name,
+                description
             })
         }
     );
@@ -174,6 +198,7 @@ export {
     deleteRoutine,
     deleteRoutineActivity,
     createNewRoutine,
+    editRoutine,
     fetchMyRoutines,
     fetchRegister,
     fetchLogin,

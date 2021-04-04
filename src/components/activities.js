@@ -8,15 +8,15 @@ const Activities = ({ user }) => {
 
   useEffect(() => {
     fetchActivities().then(activities => {
-        setActivityList(activities)
-      })
+      setActivityList(activities)
+    })
       .catch(error => {
       });
   }, []);
 
   const submitNewActivity = () => {
     if (user) {
-      return <div id="submit-activity">
+      return <div id="ralist-main">
         <header>
           <h1>Create New Activity</h1>
         </header>
@@ -58,11 +58,11 @@ const Activities = ({ user }) => {
     }
   }
   return (
-    <div className="activities">
-      <h1>Activities</h1>
+    <div id="ralist-main">
       {submitNewActivity()}
+      <h1>Activities</h1>
       {ActivityList.map(({ id, name, description }) => (
-        <div key={id} className="post">
+        <div key={id} id="ralist">
           <h3>{name}</h3>
           <p>{description}</p>
         </div>

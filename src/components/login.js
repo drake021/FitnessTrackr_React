@@ -35,7 +35,8 @@ const Login = ({ user, setUser }) => {
   const myStateRef = useRef(user);
   const setRefUser = data => {
     myStateRef.current = data;
-    setUser(data);  
+    setUser(data);
+    localStorage.setItem('user', JSON.stringify(myStateRef.current));
   };
 
   const submitOnClick = (event) => {
@@ -44,10 +45,10 @@ const Login = ({ user, setUser }) => {
       fetchLogin(username, password)
         .then((response) => {
 
-        
+
 
           if (response.token) {
-            
+
             fetchMe(response.token).then(data => {
 
               updateUserState(data, response.token);

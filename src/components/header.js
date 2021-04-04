@@ -40,7 +40,7 @@ const Header = ({ user, setUser }) => {
             <div id='auth'>
                 {authSection(user, setUser)}
             </div>
-            <h1>Logo</h1>
+            <h1 id="web-title">Fitness Trac.kr</h1>
             <div className='tabs'>
                 <Link id="header-home" to="/">
                     Home

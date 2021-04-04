@@ -1,7 +1,7 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
-const Logout = ({setUser, user}) => {
+const Logout = ({ setUser, user }) => {
 
     setUser(null);
     localStorage.clear('username');

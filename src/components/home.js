@@ -1,23 +1,15 @@
 import React from 'react';
 const Home = () => {
-    return <div id="home">
+    return <div id="ralist-main">
         <section id='introduction'>
-            <div>
-                Fitness Trac.kr
-            </div>
             <div className='container'>
                 <div className='container-item'>
-                    <h2>
-                        Not a member yet?
-                        </h2>
-                    <p>
-                        Click here to register an account!
-                    </p>
-                </div>
-                <div className='container-item'>
-                    <div>
-                        Log in
-                    </div>
+                    <h1>
+                        Welcome to the premier cloud fitness tracking system, Fitness Trac.kr.
+                        </h1>
+                    <h3>
+                        View fitness routines and activities created by our members.  Not a member?  Register above!
+                    </h3>
                 </div>
             </div>
         </section>

@@ -12,18 +12,17 @@ const Routines = ({ user }) => {
             });
     }, []);
 
-console.log(user.username);
 
     return (
 
-        <div className="routines">
+        <div id="ralist-main">
             <h1>Routines</h1>
             {routineList.map(({ id, name, goal, creatorName, activities }) => (
-                <div key={id} className="post">
-                    <h3>Routine:  {name}</h3>
+                <div key={id} id="ralist">
+                    <h3 >Routine:  {name}</h3>
                     <p>Goal:  {goal}</p>
                     <p>Creator:  {creatorName}</p>
-                    {activities.map(({id, name, description, duration, count}) =>
+                    {activities.map(({ id, name, description, duration, count }) =>
                         <div key={id}>
                             <h4>Activity:  {name}</h4>
                             <p>Description:  {description}</p>

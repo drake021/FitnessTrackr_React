@@ -1,14 +1,17 @@
 #app {
-    background-color: #e1f1f0;
-    display: grid;
-    grid-template: 100px 1fr / 1fr;
-    width: 100%;
-    height: 50pc;
-    padding: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: unset;
+    color: #e63946;
 }
+
+#web-title {
+    font-size: 3rem;
+    color: #e63946;
+}
+
 #header {
     grid-area: 1 / 1 / 2 / 2;
-    background-color: #7579e7;
+    background-color: #1d3557;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -16,7 +19,7 @@
 }
 #header-home, #header-routines, #header-myroutines, #header-activities {
     border: 1px solid black;
-    background-color: #a3d8f4;
+    background-color: #a8dadc;
     font-size: 2rem;
     margin: 3px;
     padding: 1em;
@@ -25,9 +28,64 @@
     text-decoration: unset;
     align-self: stretch;
     flex-basis: 100px;
-    color: #28527a;
+    color: #e63946;
 }
 
 #header-home:hover, #header-routines:hover, #header-myroutines:hover, #header-activities:hover {
     background-color: white;
+}
+button {
+    margin: 5px;
+    background-color: #a8dadc;
+    color: #e63946;
+    font-weight: bold;
+    flex: 0 0 100px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid black;
+    width: 80px;
+    height: 40px;
+}
+button:hover {
+    background-color: white;
+}
+button.active {
+    background-color: #e5cfe5;
+}
+#username {
+    padding: 5px;
+    font-size: 2rem;
+    text-align: center;
+    color: #e63946;
+}
+#ralist-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+
+  #ralist {
+        width: 900px;
+        margin: 20px auto;
+        padding: 5px;
+        border: thick double #32a1ce;
+        display: grid;
+        text-align: center;
+        background-color: #1d3557;
+  }
+
+
+  #submit {
+    width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border: thick double #32a1ce;
+    background-color: #1d3557;
+    display: grid;
+    text-align: center;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
